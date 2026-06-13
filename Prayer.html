@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prayer - HEBG Ministry</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f4f7fb;
+}
+.hero{
+    min-height:420px;
+    background-color:#000;
+    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)),url('/uploads/images/hero-worship.svg');
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    color:white;
+    padding:140px 20px;
+    text-align:center;
+}
+.hero h1{
+    font-size:clamp(28px,5vw,52px);
+    font-weight:700;
+}
+.hero p{
+    font-size:clamp(14px,3vw,18px);
+}
+.section{
+    padding:80px 0;
+}
+.card{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+.form-control{
+    border-radius:12px;
+    padding:12px;
+    font-size:15px;
+}
+.btn-custom{
+    background:#198754;
+    color:white;
+    padding:12px;
+    border-radius:12px;
+    font-weight:500;
+    transition:.3s;
+}
+.btn-custom:hover{
+    background:#157347;
+    color:white;
+}
+footer{
+    background:#0a1931;
+    color:white;
+}
+@media(max-width:768px){
+    .section{
+        padding:60px 0;
+    }
+    .hero{
+        padding:100px 15px;
+    }
+}
+</style>
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold" href="index.html">HEBG Ministry</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto text-center gap-2">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="sermons.html">Sermons</a></li>
+<li class="nav-item"><a class="nav-link active" href="prayer.html" aria-current="page">Prayer</a></li>
+<li class="nav-item"><a class="nav-link" href="vegetarian.html">Vegetarian</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<section class="hero prayer-hero d-flex align-items-center">
+<div class="container">
+<h1>Prayer Request</h1>
+<p class="mt-3">&ldquo;The effectual fervent prayer of a righteous man availeth much.&rdquo; - James 5:16</p>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-md-8 col-lg-7">
+<div class="card p-4 p-md-5">
+<h2 class="h3 text-center mb-4 fw-bold">Submit Your Prayer</h2>
+<form id="prayerForm">
+<div id="prayerFeedback" class="alert d-none" role="alert"></div>
+<div class="mb-3">
+<label class="form-label" for="fullName">Full Name</label>
+<input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your name" required>
+</div>
+<div class="mb-3">
+<label class="form-label" for="email">Email</label>
+<input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+</div>
+<div class="mb-3">
+<label class="form-label" for="prayerRequest">Prayer Request</label>
+<textarea class="form-control" id="prayerRequest" name="prayerRequest" rows="6" placeholder="Write your prayer request..." required></textarea>
+</div>
+<button type="submit" class="btn btn-custom w-100">Submit Prayer</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section bg-light text-center">
+<div class="container">
+<h2 class="h3 fw-bold">Scriptural Encouragement</h2>
+<blockquote class="blockquote mt-4">
+<p class="fs-5">&ldquo;Call unto me, and I will answer thee, and shew thee great and mighty things.&rdquo;</p>
+<footer class="blockquote-footer">Jeremiah 33:3</footer>
+</blockquote>
+</div>
+</section>
+
+<footer class="text-center py-4">
+<p class="mb-0">&copy; 2026 Highly Elected Being of God Ministry</p>
+</footer>
+
+<script>
+const prayerApiBase = window.location.origin === 'http://localhost:3000' ? '' : 'http://localhost:3000';
+const prayerForm = document.getElementById('prayerForm');
+const prayerFeedback = document.getElementById('prayerFeedback');
+
+function showPrayerFeedback(message, type = 'success') {
+    prayerFeedback.className = `alert alert-${type}`;
+    prayerFeedback.textContent = message;
+}
+
+prayerForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = prayerForm.querySelector('button[type="submit"]');
+    button.disabled = true;
+    button.textContent = 'Submitting...';
+
+    try {
+        const response = await fetch(`${prayerApiBase}/api/prayers`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(new FormData(prayerForm)))
+        });
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Could not submit your prayer request.');
+        }
+
+        showPrayerFeedback(data.message);
+        prayerForm.reset();
+    } catch (error) {
+        showPrayerFeedback(error.message || 'Cannot reach the backend. Make sure Node is running.', 'danger');
+    } finally {
+        button.disabled = false;
+        button.textContent = 'Submit Prayer';
+    }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

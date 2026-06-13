@@ -1,0 +1,258 @@
+:root {
+  --hebg-ink: #102033;
+  --hebg-muted: #667085;
+  --hebg-line: #dbe3ec;
+  --hebg-surface: #ffffff;
+  --hebg-soft: #f6f8fb;
+  --hebg-brand: #146c43;
+  --hebg-brand-dark: #0f5132;
+  --hebg-gold: #b38b59;
+  --hebg-navy: #111827;
+  --hebg-radius: 8px;
+  --hebg-shadow: 0 12px 34px rgba(16, 32, 51, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--hebg-ink);
+  background:
+    radial-gradient(circle at top left, rgba(20, 108, 67, 0.08), transparent 32rem),
+    linear-gradient(180deg, #f8fafc 0%, #f3f6f8 100%);
+  line-height: 1.65;
+}
+
+body::selection {
+  background: rgba(20, 108, 67, 0.18);
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar.bg-dark {
+  background: rgba(17, 24, 39, 0.96) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.navbar-brand {
+  letter-spacing: 0.01em;
+}
+
+.navbar .nav-link {
+  border-radius: var(--hebg-radius);
+  font-weight: 600;
+  padding: 0.55rem 0.8rem !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff !important;
+}
+
+.hero {
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-hero {
+  background:
+    linear-gradient(rgba(6, 78, 59, 0.8), rgba(10, 25, 49, 0.9)),
+    url('/uploads/images/hero-worship.svg') center/cover !important;
+}
+
+.sermons-hero {
+  background:
+    linear-gradient(rgba(6, 78, 59, 0.8), rgba(10, 25, 49, 0.85)),
+    url('/uploads/images/hero-worship.svg') center/cover !important;
+}
+
+.prayer-hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+    url('/uploads/images/hero-worship.svg') center/cover !important;
+}
+
+.vegetarian-hero {
+  background:
+    linear-gradient(rgba(6, 78, 59, 0.8), rgba(10, 25, 49, 0.9)),
+    url('/uploads/images/hero-worship.svg') center/cover !important;
+}
+
+.contact-hero {
+  background:
+    linear-gradient(rgba(6, 78, 59, 0.8), rgba(10, 25, 49, 0.9)),
+    url('/uploads/images/hero-worship.svg') center/cover !important;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1,
+.hero .display-3,
+.hero .display-5 {
+  letter-spacing: 0;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero .lead,
+.hero p {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section {
+  position: relative;
+}
+
+.section h2,
+.section .h1,
+.section .display-5 {
+  letter-spacing: 0;
+}
+
+.card,
+.feature-box,
+.join-card,
+.panel,
+.live-stream-card {
+  border: 1px solid var(--hebg-line) !important;
+  border-radius: var(--hebg-radius) !important;
+  box-shadow: var(--hebg-shadow) !important;
+}
+
+.card:hover,
+.feature-box:hover {
+  transform: translateY(-3px);
+}
+
+.btn {
+  border-radius: var(--hebg-radius) !important;
+  font-weight: 700;
+}
+
+.btn-success,
+.btn-custom {
+  background: var(--hebg-brand) !important;
+  border-color: var(--hebg-brand) !important;
+  color: #fff !important;
+}
+
+.btn-success:hover,
+.btn-custom:hover {
+  background: var(--hebg-brand-dark) !important;
+  border-color: var(--hebg-brand-dark) !important;
+}
+
+.btn-outline-light:hover {
+  color: var(--hebg-navy) !important;
+}
+
+.form-control,
+.form-select {
+  border-color: #cfd9e5 !important;
+  border-radius: var(--hebg-radius) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--hebg-brand) !important;
+  box-shadow: 0 0 0 0.2rem rgba(20, 108, 67, 0.14) !important;
+}
+
+label.form-label {
+  color: var(--hebg-ink);
+  font-weight: 700;
+}
+
+.alert {
+  border-radius: var(--hebg-radius);
+  border-width: 1px;
+}
+
+.badge {
+  letter-spacing: 0.01em;
+}
+
+blockquote {
+  border-radius: var(--hebg-radius) !important;
+}
+
+footer {
+  background: var(--hebg-navy) !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+.whatsapp {
+  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.34);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 10;
+}
+
+.whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(37, 211, 102, 0.42);
+}
+
+.logo-box,
+.brand-mark,
+.member-mark {
+  height: 45px;
+  border-radius: 50% !important;
+  background: linear-gradient(45deg, var(--hebg-brand), var(--hebg-navy));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.join-image {
+  min-height: 100%;
+  background:
+    linear-gradient(rgba(6, 78, 59, 0.46), rgba(17, 24, 39, 0.68)),
+    url('/uploads/images/hero-worship.svg') center/cover;
+}
+
+.login-image {
+  background:
+    linear-gradient(rgba(6, 78, 59, 0.4), rgba(6, 78, 59, 0.4)),
+    url('/uploads/images/hero-worship.svg') center/cover !important;
+}
+
+.feature-icon,
+.bi.text-success {
+  color: var(--hebg-brand) !important;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 360px;
+  }
+
+  .section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .join-image {
+    min-height: 220px;
+  }
+
+  .card,
+  .feature-box,
+  .join-card,
+  .panel {
+    box-shadow: 0 8px 22px rgba(16, 32, 51, 0.07) !important;
+  }
+}

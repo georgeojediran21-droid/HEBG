@@ -1,0 +1,19 @@
+{
+  "name": "hebg-ministry",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js backend for HEBG Ministry sermon uploads.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.1.5",
+    "multer": "^2.0.2",
+    "nodemailer": "^6.9.13",
+    "socket.io": "^4.8.3"
+  }
+}

@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highly Elected Being of God</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+:root {
+    --primary-emerald: #064e3b;
+    --accent-gold: #b38b59;
+    --soft-cream: #fdfbf7;
+    --deep-navy: #0a1931;
+    --glass-white: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--soft-cream);
+    color: var(--deep-navy);
+}
+
+.transition-up { transition: 0.3s ease; }
+.transition-up:hover { transform: translateY(-10px); }
+
+.hero {
+    background: linear-gradient(rgba(6, 78, 59, 0.8), rgba(10, 25, 49, 0.9)),
+                url('/uploads/images/hero-worship.svg') center/cover;
+    color: white;
+    padding: 120px 20px;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.hero h1 { 
+    font-size: clamp(28px, 5vw, 55px);
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: clamp(14px, 2.5vw, 18px);
+}
+
+.tracking-wider { letter-spacing: 0.1em; }
+
+/* CARDS */
+.card {
+    border: none;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+/* FEATURES */
+.feature-box {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+/* ICONS */
+.feature-icon {
+    font-size: 40px;
+    color: #198754;
+}
+
+/* LOGO */
+.logo-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(45deg,#198754,#0a1931);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: #25D366;
+    color: white;
+    padding: 14px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+    .hero {
+        padding: 90px 15px;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+    .display-3 {
+        font-size: 2.5rem;
+    }
+}
+</style>
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top py-3">
+<div class="container">
+
+<div class="d-flex align-items-center gap-2">
+<div class="logo-box">HE</div>
+<a class="navbar-brand fw-bold" href="index.html">HEBG Ministry</a>
+</div>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto text-center text-lg-start gap-lg-2">
+
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="sermons.html">Sermons</a></li>
+<li class="nav-item"><a class="nav-link" href="Prayer.html">Prayer</a></li>
+<li class="nav-item"><a class="nav-link" href="vegetarian.html">Vegetarian</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+<li class="nav-item" id="memberLoginItem"><a class="nav-link" href="login.html">Member Login</a></li>
+<li class="nav-item d-none" id="memberDashboardItem"><a class="nav-link" href="member.html">Dashboard</a></li>
+<li class="nav-item d-none" id="logoutItem"><button class="btn btn-outline-light btn-sm mt-1 mt-lg-0" id="logoutBtn" type="button">Logout</button></li>
+
+</ul>
+</div>
+
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero home-hero d-flex align-items-center">
+<div class="container py-5">
+<h1 class="display-3 fw-bold text-white mb-4">Highly Elected Being of God</h1>
+<p class="lead text-white-75 mb-5">Chosen, Called, and Set Apart to manifest His glory.</p>
+
+<div class="mt-4 d-flex flex-column flex-sm-row justify-content-center gap-2">
+<a href="join.html" class="btn btn-success btn-lg px-5 rounded-pill shadow-lg">Join Now</a>
+<a href="sermons.html" class="btn btn-outline-light btn-lg px-5 rounded-pill shadow-lg">
+    Watch Sermons
+</a>
+</div>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section class="py-5 bg-white">
+<div class="container">
+<h2 class="display-5 fw-bold text-center mb-5">Our Core Pillars</h2>
+
+<div class="row g-4 row-cols-1 row-cols-md-3">
+
+<div class="col">
+<div class="card h-100 shadow-sm border-0 rounded-4 p-5 text-center transition-up">
+<i class="bi bi-fire feature-icon text-success mb-3"></i>
+<h3 class="h4 fw-bold mt-3">Revival</h3>
+<p class="text-muted">Igniting spiritual fire and awakening in the hearts of men across nations.</p>
+</div>
+</div>
+
+<div class="col">
+<div class="card h-100 shadow-sm border-0 rounded-4 p-5 text-center transition-up">
+<i class="bi bi-book feature-icon text-success mb-3"></i>
+<h3 class="h4 fw-bold">Word</h3>
+<p class="text-muted">Grounded in deep revelation and sound doctrine to equip the saints.</p>
+</div>
+</div>
+
+<div class="col">
+<div class="card h-100 shadow-sm border-0 rounded-4 p-5 text-center transition-up">
+<i class="bi bi-leaf feature-icon text-success mb-3"></i>
+<h3 class="h4 fw-bold">Discipline</h3>
+<p class="text-muted">Fostering a holy and healthy living lifestyle through spiritual discipline.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- MINISTRY STATS -->
+<section class="py-5 bg-light border-top border-bottom">
+    <div class="container">
+        <div class="row g-3 g-md-4 text-center">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="display-4 fw-bold text-success mb-1">10k+</div>
+                <div class="text-muted text-uppercase small fw-bold tracking-wider">Members</div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="display-4 fw-bold text-success mb-1">500+</div>
+                <div class="text-muted text-uppercase small fw-bold tracking-wider">Sermons</div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="display-4 fw-bold text-success mb-1">50+</div>
+                <div class="text-muted text-uppercase small fw-bold tracking-wider">Countries</div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="display-4 fw-bold text-success mb-1">24/7</div>
+                <div class="text-muted text-uppercase small fw-bold tracking-wider">Prayer Support</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MISSION SPLIT SECTION -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <img src="/uploads/images/hero-worship.svg" class="img-fluid rounded-5 shadow-lg" alt="People gathered in worship for the ministry mission">
+                    <div class="position-absolute bottom-0 end-0 p-4 bg-success text-white rounded-4 m-3 d-none d-md-block shadow">
+                        <h4 class="fw-bold mb-0">Transforming Lives</h4>
+                        <p class="small mb-0 opacity-75">Spreading the Light since 2020</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill mb-3 fw-bold">Our Mission</span>
+                <h2 class="display-5 fw-bold mb-4">Spreading the Light of Truth Globally</h2>
+                <p class="lead text-muted mb-4">The Highly Elected Being of God Ministry is dedicated to empowering believers through the raw word of God, spiritual discipline, and a consecrated lifestyle.</p>
+                <div class="row g-3 mb-5">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-success text-white rounded-circle p-2 d-flex"><i class="bi bi-check2"></i></div>
+                            <span class="fw-bold">Daily Nourishment</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-success text-white rounded-circle p-2 d-flex"><i class="bi bi-check2"></i></div>
+                            <span class="fw-bold">Global Outreach</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="join.html" class="btn btn-success btn-lg rounded-pill px-5 shadow">Get Started <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERMONS -->
+<section class="py-5">
+<div class="container text-center">
+<h2 class="display-5 fw-bold mb-5">Featured Teachings</h2>
+
+<div class="row g-4 row-cols-1 row-cols-md-3">
+
+<div class="col">
+<div class="card h-100 shadow-lg border-0 rounded-4 p-4 text-start">
+<h4 class="fw-bold">Awake O Zion</h4>
+<p class="text-muted">Arise from spiritual slumber and take your place in the kingdom.</p>
+<div class="mt-auto pt-3"><a href="sermons.html" class="btn btn-success rounded-pill px-4">Watch Now</a></div>
+</div>
+</div>
+
+<div class="col">
+<div class="card h-100 shadow-lg border-0 rounded-4 p-4 text-start">
+<h4 class="fw-bold">Holiness</h4>
+<p class="text-muted">Living a life consecrated and separated unto the Lord in all purity.</p>
+<div class="mt-auto pt-3"><a href="sermons.html" class="btn btn-success rounded-pill px-4">Watch Now</a></div>
+</div>
+</div>
+
+<div class="col">
+<div class="card h-100 shadow-lg border-0 rounded-4 p-4 text-start">
+<h4 class="fw-bold">Faith Fire</h4>
+<p class="text-muted">Harnessing the power of mountain-moving faith in your daily walk.</p>
+<div class="mt-auto pt-3"><a href="sermons.html" class="btn btn-success rounded-pill px-4">Watch Now</a></div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SCRIPTURE -->
+<section class="py-5">
+<div class="container">
+<h2 class="h1 fw-bold mb-4 text-center">Scriptural Foundation</h2>
+<blockquote class="blockquote bg-white p-5 rounded-4 shadow-lg border-start border-success border-5">
+<p class="fs-4 fst-italic">"But ye are a chosen generation, a royal priesthood, an holy nation, a peculiar people; that ye should shew forth the praises of him who hath called you out of darkness into his marvellous light."</p>
+<footer class="blockquote-footer mt-2 fw-bold">1 Peter 2:9</footer>
+</blockquote>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="section text-center bg-dark text-white">
+<div class="container py-5">
+<h2 class="display-5 fw-bold mb-3">Become Part of the Elect</h2>
+<p class="lead mb-4">Join the move of God</p>
+<a href="join.html" class="btn btn-success btn-lg rounded-pill px-5 shadow-lg">Join Ministry</a>
+</div>
+</section>
+
+<!-- SOCIAL -->
+<section class="py-5">
+<div class="container text-center">
+<h2 class="display-5 fw-bold mb-4">Connect With Us</h2>
+
+<div class="d-flex justify-content-center gap-4 fs-2 mt-3 flex-wrap">
+<i class="bi bi-whatsapp text-success"></i>
+<i class="bi bi-youtube text-danger"></i>
+<i class="bi bi-tiktok"></i>
+<i class="bi bi-twitter text-primary"></i>
+</div>
+
+</div>
+</section>
+
+<footer class="bg-dark text-white pt-5 pb-4 border-top border-secondary">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div class="logo-box">HE</div>
+                    <span class="fs-4 fw-bold">HEBG Ministry</span>
+                </div>
+                <p class="text-white-50 small pe-lg-5">Chosen generation, a royal priesthood, a peculiar people. Dedicated to the revival of hearts and the preparation for the kingdom of God.</p>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h5 class="fw-bold mb-3">Resources</h5>
+                <ul class="list-unstyled text-white-50 small">
+                    <li class="mb-2"><a href="sermons.html" class="text-reset text-decoration-none">Latest Sermons</a></li>
+                    <li class="mb-2"><a href="Prayer.html" class="text-reset text-decoration-none">Prayer Requests</a></li>
+                    <li class="mb-2"><a href="vegetarian.html" class="text-reset text-decoration-none">Vegetarian Way</a></li>
+                    <li class="mb-2"><a href="contact.html" class="text-reset text-decoration-none">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h5 class="fw-bold mb-3">Connect</h5>
+                <ul class="list-unstyled text-white-50 small">
+                    <li class="mb-2"><a href="join.html" class="text-reset text-decoration-none">Join Ministry</a></li>
+                    <li class="mb-2"><a href="login.html" class="text-reset text-decoration-none">Member Login</a></li>
+                    <li class="mb-2"><a href="#" class="text-reset text-decoration-none text-nowrap">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h5 class="fw-bold mb-3">Spiritual Updates</h5>
+                <p class="text-white-50 small">Get word and event notifications delivered to your inbox.</p>
+                <form id="spiritualUpdatesForm" class="input-group mb-2">
+                    <input id="spiritualUpdatesEmail" name="email" type="email" class="form-control border-0" placeholder="Email address" aria-label="Email" required>
+                    <button id="spiritualUpdatesButton" class="btn btn-success" type="submit">Subscribe</button>
+                </form>
+                <div id="spiritualUpdatesFeedback" class="small text-white-50" role="status"></div>
+            </div>
+        </div>
+        <hr class="border-secondary my-4 opacity-25">
+        <div class="text-center text-white-50 small">
+            <p class="mb-0">&copy; 2026 Highly Elected Being of God Ministry. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+const memberTokenKey = 'hebgMemberToken';
+const adminTokenKey = 'hebgAdminToken';
+const memberRoleKey = 'hebgMemberRole';
+const homepageApiBase = window.location.origin === 'http://localhost:3000' ? '' : 'http://localhost:3000';
+const memberLoginItem = document.getElementById('memberLoginItem');
+const memberDashboardItem = document.getElementById('memberDashboardItem');
+const logoutItem = document.getElementById('logoutItem');
+const logoutBtn = document.getElementById('logoutBtn');
+const spiritualUpdatesForm = document.getElementById('spiritualUpdatesForm');
+const spiritualUpdatesFeedback = document.getElementById('spiritualUpdatesFeedback');
+const spiritualUpdatesButton = document.getElementById('spiritualUpdatesButton');
+
+function setAdminReturnLink(isAdmin) {
+    let item = document.getElementById('adminReturnItem');
+    if (!isAdmin) {
+        item?.remove();
+        return;
+    }
+
+    if (!item) {
+        item = document.createElement('li');
+        item.className = 'nav-item';
+        item.id = 'adminReturnItem';
+        item.innerHTML = '<a class="nav-link" href="admin.html">Admin</a>';
+        logoutItem.before(item);
+    }
+}
+
+function updateHomepageNav() {
+    const hasMemberToken = Boolean(localStorage.getItem(memberTokenKey));
+    const hasAdminToken = Boolean(localStorage.getItem(adminTokenKey));
+    const isActingAdmin = localStorage.getItem(memberRoleKey) === 'acting_admin';
+    const isLoggedIn = hasMemberToken || hasAdminToken;
+
+    memberLoginItem.classList.toggle('d-none', isLoggedIn);
+    memberDashboardItem.classList.toggle('d-none', !hasMemberToken);
+    setAdminReturnLink(hasAdminToken || isActingAdmin);
+    logoutItem.classList.toggle('d-none', !isLoggedIn);
+}
+
+logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem(memberTokenKey);
+    localStorage.removeItem(adminTokenKey);
+    localStorage.removeItem(memberRoleKey);
+    updateHomepageNav();
+});
+
+spiritualUpdatesForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    spiritualUpdatesButton.disabled = true;
+    spiritualUpdatesButton.textContent = 'Subscribing...';
+    spiritualUpdatesFeedback.className = 'small text-white-50';
+    spiritualUpdatesFeedback.textContent = '';
+
+    try {
+        const response = await fetch(`${homepageApiBase}/api/subscribe`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(new FormData(spiritualUpdatesForm)))
+        });
+        const contentType = response.headers.get('content-type') || '';
+        if (!contentType.includes('application/json')) {
+            throw new Error('Cannot reach the backend. Make sure Node is running, then open http://localhost:3000/index.html');
+        }
+
+        const data = await response.json();
+
+        if (!response.ok) throw new Error(data.message || 'Could not subscribe right now.');
+
+        spiritualUpdatesFeedback.className = 'small text-success';
+        spiritualUpdatesFeedback.textContent = data.message;
+        spiritualUpdatesForm.reset();
+    } catch (error) {
+        spiritualUpdatesFeedback.className = 'small text-warning';
+        spiritualUpdatesFeedback.textContent = error.message || 'Cannot reach the backend. Make sure Node is running.';
+    } finally {
+        spiritualUpdatesButton.disabled = false;
+        spiritualUpdatesButton.textContent = 'Subscribe';
+    }
+});
+
+updateHomepageNav();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

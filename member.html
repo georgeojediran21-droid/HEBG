@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Member Dashboard - HEBG Ministry</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+:root{
+    --ink:#1a202c;
+    --muted:#718096;
+    --line:#edf2f7;
+    --surface:#ffffff;
+    --surface-soft:#f8fafc;
+    --brand:#064e3b;
+    --brand-light: #146c43;
+    --accent-gold: #b38b59;
+}
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fcfdfd;
+    color:var(--ink);
+}
+.dashboard-shell{
+    min-height:100vh;
+    padding:32px 15px 56px;
+}
+.dashboard-container{
+    max-width:1100px;
+}
+.panel{
+    border:none;
+    border-radius:16px;
+    box-shadow:0 4px 25px rgba(0,0,0,0.04);
+    background: white;
+}
+.member-header{
+    background: linear-gradient(135deg, rgba(6, 78, 59, 0.95), rgba(20, 108, 67, 0.9)),
+                url('https://www.transparenttextures.com/patterns/cubes.png'),
+                var(--brand);
+    border-radius:20px;
+    padding:35px;
+    margin-bottom:32px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(6,78,59,0.15);
+    position: relative;
+    overflow: hidden;
+}
+.member-header::after {
+    content: ""; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px;
+    background: rgba(255,255,255,0.05); border-radius: 50%;
+}
+.member-mark{
+    width:64px;
+    height:64px;
+    border-radius:12px;
+    background: var(--accent-gold);
+    display:grid;
+    place-items:center;
+    font-weight:700;
+}
+.profile-photo{
+    width:90px;
+    height:90px;
+    border-radius:16px;
+    border:3px solid white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background: #f8fafc;
+    color: var(--brand);
+    display:grid;
+    place-items:center;
+    font-weight:700;
+    object-fit:cover;
+    overflow:hidden;
+}
+.profile-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.eyebrow{
+    color:rgba(255,255,255,0.8);
+    font-size:.76rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+.status-badge{
+    font-size:.75rem;
+    border-radius:30px;
+    padding:6px 16px;
+    text-transform:capitalize;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+.profile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+}
+.profile-field{
+    padding:16px;
+    background:white;
+    border: 1px solid var(--line);
+    margin: -1px;
+    transition: 0.2s;
+}
+.profile-field:hover { background: #fcfdfd; }
+.profile-label{
+    color:var(--accent-gold);
+    font-size:.78rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    margin-bottom:4px;
+}
+.profile-value{
+    overflow-wrap:anywhere;
+    font-weight: 500;
+}
+.member-note{
+    border-left:4px solid var(--accent-gold);
+    background:#fffaf0;
+    padding:18px;
+    border-radius:12px;
+    color: #744210;
+    font-size: 0.9rem;
+}
+@media (max-width: 576px) {
+    .member-header { padding: 20px; text-align: center; }
+    .member-header .d-flex { flex-direction: column !important; }
+    .status-badge { align-self: center !important; margin-top: 10px; }
+    .profile-grid { grid-template-columns: 1fr; }
+    .profile-photo { margin: 0 auto; }
+}
+</style>
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold" href="index.html">HEBG Ministry</a>
+<div class="ms-auto d-flex gap-2">
+<a class="btn btn-outline-light btn-sm" href="index.html">Home</a>
+<a class="btn btn-outline-light btn-sm" href="sermons.html">Sermons</a>
+<button id="logoutBtn" class="btn btn-danger btn-sm" type="button">Logout</button>
+</div>
+</div>
+</nav>
+
+<main class="dashboard-shell">
+<div class="container dashboard-container">
+<div id="feedback" class="alert d-none" role="alert"></div>
+<div id="dashboard" class="d-none">
+<div class="member-header d-flex flex-column flex-md-row justify-content-between gap-3">
+<div class="d-flex align-items-center gap-3">
+<div class="member-mark">HE</div>
+<div>
+<div class="eyebrow mb-1">Member Area</div>
+<h1 class="h3 fw-bold mb-1">Welcome, <span id="memberName"></span></h1>
+<p class="text-muted mb-0">Your profile, approval status, and ministry conversations.</p>
+</div>
+</div>
+<span id="memberStatus" class="status-badge align-self-start"></span>
+</div>
+<div class="card panel mb-4">
+<div class="card-body p-4 p-md-5">
+<div id="statusMessage" class="alert mb-4"></div>
+<div class="d-flex flex-column flex-md-row align-items-center align-items-md-center gap-3 mb-4 text-center text-md-start">
+<div id="memberProfilePhoto" class="profile-photo">ME</div>
+<div class="flex-grow-1">
+<h2 class="h5 fw-bold mb-1">Profile Picture</h2>
+<p class="text-muted mb-0">Upload a clear photo for your member profile.</p>
+</div>
+<div class="d-flex flex-column flex-sm-row gap-2 w-100 w-md-auto">
+    <label for="memberProfileImage" class="visually-hidden">Upload profile image</label>
+    <input class="form-control" id="memberProfileImage" type="file" accept="image/jpeg,image/png,image/webp,image/gif" aria-describedby="memberProfileImageHelp">
+    <div id="memberProfileImageHelp" class="visually-hidden">Choose a JPEG, PNG, WebP, or GIF profile image.</div>
+    <button class="btn btn-outline-success" id="memberProfileUploadBtn" type="button">Upload</button>
+</div>
+</div>
+<div class="profile-grid mb-4">
+<div class="profile-field">
+<div class="profile-label">Email</div>
+<div class="profile-value" id="memberEmail"></div>
+</div>
+<div class="profile-field">
+<div class="profile-label">Phone</div>
+<div class="profile-value" id="memberPhone"></div>
+</div>
+<div class="profile-field">
+<div class="profile-label">Location</div>
+<div class="profile-value" id="memberLocation"></div>
+</div>
+<div class="profile-field">
+<div class="profile-label">Interest</div>
+<div class="profile-value" id="memberInterest"></div>
+</div>
+</div>
+<p class="member-note mb-0">Approved members can receive future member-only content here, including discipleship notes, private updates, and event invitations.</p>
+</div>
+</div>
+<div class="card panel">
+<div class="card-body p-3 p-md-4">
+<div id="memberDashboardChat"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<script src="dashboard-chat.js"></script>
+<script>
+const apiBase = window.location.protocol.startsWith('http') ? '' : 'http://localhost:3000';
+const tokenKey = 'hebgMemberToken';
+const feedback = document.getElementById('feedback');
+const dashboard = document.getElementById('dashboard');
+const memberProfilePhoto = document.getElementById('memberProfilePhoto');
+const memberProfileImage = document.getElementById('memberProfileImage');
+let memberChat = null;
+
+function showFeedback(message, type = 'danger') {
+    feedback.className = `alert alert-${type}`;
+    feedback.textContent = message;
+}
+
+function getFetchErrorMessage(error) {
+    if (error instanceof TypeError && error.message === 'Failed to fetch') {
+        return 'Cannot reach the backend. Make sure Node is running with: npm start, then open http://localhost:3000/member.html';
+    }
+
+    return error.message || 'Cannot reach the backend. Make sure Node is running.';
+}
+
+function setText(id, value) {
+    document.getElementById(id).textContent = value || 'Not provided';
+}
+
+function escapeHtml(value) {
+    return String(value || '').replace(/[&<>'"]/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+    }[char]));
+}
+
+function getInitials(value) {
+    return String(value || 'Member')
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .map((part) => part[0].toUpperCase())
+        .join('') || 'ME';
+}
+
+function renderMemberProfilePhoto(user) {
+    memberProfilePhoto.innerHTML = user.profileImageUrl
+        ? `<img src="${escapeHtml(user.profileImageUrl)}" alt="${escapeHtml(user.fullName)} profile picture">`
+        : escapeHtml(getInitials(user.fullName));
+}
+
+async function loadMember() {
+    const token = localStorage.getItem(tokenKey);
+    if (!token) {
+        window.location.href = 'login.html';
+        return;
+    }
+
+    try {
+        const response = await fetch(`${apiBase}/api/user/me`, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+        const user = await response.json();
+        if (!response.ok) throw new Error(user.message || 'Please log in again.');
+
+        setText('memberName', user.fullName);
+        setText('memberEmail', user.email);
+        setText('memberPhone', user.phone);
+        setText('memberLocation', user.location);
+        setText('memberInterest', user.interest);
+        renderMemberProfilePhoto(user);
+
+        const status = document.getElementById('memberStatus');
+        status.textContent = user.status;
+        status.className = `status-badge align-self-start ${user.status === 'approved' ? 'bg-success text-white' : 'bg-warning text-dark'}`;
+
+        // Check for new messages and notify user
+        try {
+            const headers = { Authorization: `Bearer ${token}` };
+            const [groupMsgs, directMsgs] = await Promise.all([
+                fetch(`${apiBase}/api/chat/messages?conversationId=group:main`, { headers }).then(r => r.json()),
+                fetch(`${apiBase}/api/chat/messages?conversationId=direct:admin:${user.id}`, { headers }).then(r => r.json())
+            ]);
+            
+            if (groupMsgs.length > 0 || directMsgs.length > 0) {
+                const note = document.createElement('div');
+                note.className = 'alert alert-info border-0 shadow-sm d-flex align-items-center mb-4';
+                note.innerHTML = `<i class="bi bi-chat-dots-fill fs-4 me-3"></i> <div><strong>New Messages!</strong> You have unread messages in your ministry chat area below.</div>`;
+                document.getElementById('feedback').after(note);
+            }
+        } catch (e) { console.error("Notification check failed", e); }
+
+        const statusMessage = document.getElementById('statusMessage');
+        if (user.status === 'approved') {
+            statusMessage.className = 'alert alert-success mb-4';
+            statusMessage.textContent = 'Your registration has been approved. Welcome fully into the ministry family.';
+        } else {
+            statusMessage.className = 'alert alert-warning mb-4';
+            statusMessage.textContent = 'Your account is pending admin approval. You can still view this dashboard while you wait.';
+        }
+
+        dashboard.classList.remove('d-none');
+        if (!memberChat) {
+            memberChat = window.initDashboardChat({
+                mountId: 'memberDashboardChat',
+                tokenKey,
+                role: 'member',
+                userId: user.id
+            });
+        } else {
+            memberChat.refresh();
+        }
+    } catch (error) {
+        localStorage.removeItem(tokenKey);
+        showFeedback(getFetchErrorMessage(error));
+    }
+}
+
+document.getElementById('memberProfileUploadBtn').addEventListener('click', async () => {
+    const token = localStorage.getItem(tokenKey);
+    const file = memberProfileImage.files[0];
+
+    if (!file) {
+        showFeedback('Please choose a profile picture first.', 'warning');
+        return;
+    }
+
+    const button = document.getElementById('memberProfileUploadBtn');
+    const formData = new FormData();
+    formData.append('profileImage', file);
+    button.disabled = true;
+    button.textContent = 'Uploading...';
+
+    try {
+        const response = await fetch(`${apiBase}/api/user/profile-picture`, {
+            method: 'PATCH',
+            headers: { Authorization: `Bearer ${token}` },
+            body: formData
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.message || 'Could not update profile picture.');
+
+        renderMemberProfilePhoto(result.user);
+        memberProfileImage.value = '';
+        showFeedback('Profile picture updated.', 'success');
+    } catch (error) {
+        showFeedback(getFetchErrorMessage(error));
+    } finally {
+        button.disabled = false;
+        button.textContent = 'Upload';
+    }
+});
+
+document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem(tokenKey);
+    window.location.href = 'login.html';
+});
+
+loadMember();
+</script>
+</body>
+</html>

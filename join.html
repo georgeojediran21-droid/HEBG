@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Ministry - HEBG Ministry</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f4f7fb;
+}
+.hero{
+    background:linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.72)),url('/uploads/images/hero-worship.svg') center/cover;
+    color:white;
+    padding:110px 20px;
+    text-align:center;
+}
+.hero h1{
+    font-size:clamp(30px,5vw,54px);
+    font-weight:700;
+}
+.section{
+    padding:70px 0;
+}
+.join-card{
+    border:none;
+    border-radius:24px;
+    box-shadow:0 18px 50px rgba(10,25,49,.12);
+}
+.form-control,.form-select{
+    border-radius:12px;
+    padding:12px;
+}
+.btn-custom{
+    background:#198754;
+    color:white;
+    border-radius:12px;
+    padding:12px;
+    font-weight:500;
+}
+.btn-custom:hover{
+    background:#146c43;
+    color:white;
+}
+footer{
+    background:#0a1931;
+    color:white;
+}
+@media(max-width:768px){
+    .hero{
+        padding:85px 15px;
+    }
+    .section{
+        padding:50px 0;
+    }
+}
+</style>
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold" href="index.html">HEBG Ministry</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto text-center gap-2">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="sermons.html">Sermons</a></li>
+<li class="nav-item"><a class="nav-link" href="Prayer.html">Prayer</a></li>
+<li class="nav-item"><a class="nav-link" href="vegetarian.html">Vegetarian</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+<li class="nav-item"><a class="nav-link active" href="join.html" aria-current="page">Join</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<main class="join-shell">
+<div class="container join-container">
+<div class="card join-card overflow-hidden">
+    <div class="row g-0">
+        <div class="col-lg-4 join-image"></div>
+        <div class="col-lg-8 p-4 p-md-5 bg-white">
+            <h1 class="h3 fw-bold mb-2">Ministry Registration</h1>
+            <p class="text-muted mb-4 small">Tell us a little about you and how you want to connect with the ministry.</p>
+            <form id="joinForm" class="row g-3">
+                <div id="joinFeedback" class="alert d-none" role="alert"></div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold small text-uppercase" for="fullName">Full Name</label>
+                    <input class="form-control" id="fullName" name="fullName" required placeholder="Full Name">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold small text-uppercase" for="email">Email</label>
+                    <input class="form-control" id="email" name="email" type="email" required placeholder="Email Address">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold small text-uppercase" for="phone">Phone</label>
+                    <input class="form-control" id="phone" name="phone" required placeholder="Phone Number">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold small text-uppercase" for="location">Location</label>
+                    <input class="form-control" id="location" name="location" required placeholder="City / Country">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold small text-uppercase" for="password">Password</label>
+                    <div class="input-group">
+                        <input class="form-control" id="password" name="password" type="password" minlength="8" required aria-describedby="pwdToggle">
+                        <button class="btn btn-outline-secondary" type="button" id="pwdToggle" aria-label="Toggle password visibility"><i class="bi bi-eye" id="pwdToggleIcon"></i></button>
+                    </div>
+                    <div class="mt-2">
+                        <small id="pwdLower" class="badge bg-light text-dark me-2">Lowercase: <span class="fw-bold">—</span></small>
+                        <small id="pwdUpper" class="badge bg-light text-dark">Uppercase: <span class="fw-bold">—</span></small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold small text-uppercase" for="confirmPassword">Confirm</label>
+                    <div class="input-group">
+                        <input class="form-control" id="confirmPassword" name="confirmPassword" type="password" minlength="8" required aria-describedby="confirmPwdToggle">
+                        <button class="btn btn-outline-secondary" type="button" id="confirmPwdToggle" aria-label="Toggle confirm password visibility"><i class="bi bi-eye" id="confirmPwdToggleIcon"></i></button>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label class="form-label fw-bold small text-uppercase" for="interest">Join As</label>
+                    <select class="form-select" id="interest" name="interest" required>
+                        <option value="">Choose one</option>
+                        <option value="Become a member">Become a member</option>
+                        <option value="Join prayer team">Join prayer team</option>
+                        <option value="Serve as volunteer">Serve as volunteer</option>
+                        <option value="Receive discipleship">Receive discipleship</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label class="form-label fw-bold small text-uppercase" for="message">Message (Optional)</label>
+                    <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+                </div>
+                <div class="col-12 mt-4">
+                    <button class="btn btn-custom w-100 shadow" type="submit">Complete Registration</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</main>
+
+<footer class="text-center py-4">
+<p class="mb-0">&copy; 2026 Highly Elected Being of God Ministry</p>
+</footer>
+
+<script>
+const joinApiBase = window.location.origin === 'http://localhost:3000' ? '' : 'http://localhost:3000';
+const joinForm = document.getElementById('joinForm');
+const joinFeedback = document.getElementById('joinFeedback');
+
+// Password visibility and case indicators
+const pwd = document.getElementById('password');
+const pwdToggle = document.getElementById('pwdToggle');
+const pwdToggleIcon = document.getElementById('pwdToggleIcon');
+const confirmPwd = document.getElementById('confirmPassword');
+const confirmPwdToggle = document.getElementById('confirmPwdToggle');
+const confirmPwdToggleIcon = document.getElementById('confirmPwdToggleIcon');
+const pwdLower = document.getElementById('pwdLower');
+const pwdUpper = document.getElementById('pwdUpper');
+
+function updateCaseIndicators(value) {
+    const hasLower = /[a-z]/.test(value);
+    const hasUpper = /[A-Z]/.test(value);
+    pwdLower.querySelector('span').textContent = hasLower ? 'Yes' : 'No';
+    pwdUpper.querySelector('span').textContent = hasUpper ? 'Yes' : 'No';
+    pwdLower.classList.toggle('bg-success', hasLower);
+    pwdLower.classList.toggle('text-white', hasLower);
+    pwdUpper.classList.toggle('bg-success', hasUpper);
+    pwdUpper.classList.toggle('text-white', hasUpper);
+}
+
+pwd.addEventListener('input', (e) => updateCaseIndicators(e.target.value));
+
+pwdToggle.addEventListener('click', () => {
+    const type = pwd.type === 'password' ? 'text' : 'password';
+    pwd.type = type;
+    pwdToggleIcon.className = type === 'text' ? 'bi bi-eye-slash' : 'bi bi-eye';
+});
+
+confirmPwdToggle.addEventListener('click', () => {
+    const type = confirmPwd.type === 'password' ? 'text' : 'password';
+    confirmPwd.type = type;
+    confirmPwdToggleIcon.className = type === 'text' ? 'bi bi-eye-slash' : 'bi bi-eye';
+});
+
+function showJoinFeedback(message, type = 'success') {
+    joinFeedback.className = `alert alert-${type}`;
+    joinFeedback.textContent = message;
+}
+
+joinForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = joinForm.querySelector('button[type="submit"]');
+    const formData = new FormData(joinForm);
+    const password = formData.get('password');
+    const confirmPassword = formData.get('confirmPassword');
+
+    if (password !== confirmPassword) {
+        showJoinFeedback('Passwords do not match.', 'danger');
+        return;
+    }
+
+    formData.delete('confirmPassword');
+
+    button.disabled = true;
+    button.textContent = 'Submitting...';
+
+    try {
+        const response = await fetch(`${joinApiBase}/api/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(formData))
+        });
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Could not submit registration.');
+        }
+
+        showJoinFeedback(data.message);
+        joinForm.reset();
+    } catch (error) {
+        showJoinFeedback(error.message || 'Cannot reach the backend. Make sure Node is running.', 'danger');
+    } finally {
+        button.disabled = false;
+        button.textContent = 'Submit Registration';
+    }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

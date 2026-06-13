@@ -1,0 +1,529 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sermons - HEBG Ministry</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+:root {
+    --primary-emerald: #064e3b;
+    --soft-cream: #fdfbf7;
+    --deep-navy: #0a1931;
+}
+body{ font-family:'Poppins',sans-serif; background:var(--soft-cream); color:var(--deep-navy); }
+.section{ padding:80px 0; }
+
+.transition-up { transition: 0.3s ease; }
+.transition-up:hover { transform: translateY(-10px); }
+
+.hero{
+    background:linear-gradient(rgba(6, 78, 59, 0.8),rgba(10, 25, 49, 0.85)),url('/uploads/images/hero-worship.svg') center/cover;
+    color:white;
+    padding:120px 20px;
+    text-align:center;
+}
+.hero h1{
+    font-size:clamp(28px,5vw,52px);
+    font-weight:700;
+}
+.card{
+    border:none !important;
+    border-radius:20px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+}
+.card:hover{
+    transform:translateY(-8px);
+}
+.media-frame{
+    border-radius:15px;
+    overflow:hidden;
+    background:#0a1931;
+}
+audio,video{
+    width:100%;
+}
+.pdf-box{
+    min-height:190px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#0a1931,#198754);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:54px;
+}
+footer{
+    background:#0a1931;
+    color:white;
+}
+.live-stream-card{
+    border-radius:18px;
+    background:white;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    padding:20px;
+    text-align:left;
+}
+.live-stream-card h3{
+    margin-top:1rem;
+}
+.live-stream-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border-radius:999px;
+    padding:7px 12px;
+    background:#eaf7ef;
+    color:#146c43;
+    font-weight:700;
+    font-size:.82rem;
+    margin-bottom:12px;
+}
+.live-audio-frame{
+    border-radius:15px;
+    background:linear-gradient(135deg,#0a1931,#198754);
+    color:#fff;
+    padding:36px 20px;
+    text-align:center;
+}
+.live-audio-frame audio{
+    margin-top:18px;
+}
+.live-room-video{
+    width:100%;
+    max-height:460px;
+    border-radius:12px;
+    background:#030914;
+    display:block;
+}
+.live-room-action{
+    margin-top:14px;
+}
+.live-stream-empty{
+    min-height:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#6c757d;
+}
+@media(max-width:768px){
+    .section{padding:60px 0;}
+    .hero{padding:90px 15px;}
+}
+</style>
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+<div class="container">
+<a class="navbar-brand fw-bold" href="index.html">HEBG Ministry</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto text-center gap-2">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link active" href="sermons.html">Sermons</a></li>
+<li class="nav-item"><a class="nav-link" href="prayer.html">Prayer</a></li>
+<li class="nav-item"><a class="nav-link" href="vegetarian.html">Vegetarian</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<section class="hero sermons-hero d-flex align-items-center">
+<div class="container">
+<h1>Sermons & Teachings</h1>
+<p class="mt-3">Grow through the Word and the Spirit</p>
+</div>
+</section>
+
+<section class="section bg-light">
+<div class="container text-center">
+<h2 class="mb-5 fw-bold">Live Teaching</h2>
+<div id="liveStream" class="row g-4 justify-content-center"></div>
+</div>
+</section>
+
+<section class="section bg-light">
+<div class="container text-center">
+<h2 class="mb-5 fw-bold">Video Sermons</h2>
+<div id="videoSermons" class="row g-4 justify-content-center"></div>
+</div>
+</section>
+
+<section class="section">
+<div class="container text-center">
+<h2 class="mb-5 fw-bold">Audio Sermons</h2>
+<div id="audioSermons" class="row g-4 justify-content-center"></div>
+</div>
+</section>
+
+<section class="section bg-light">
+<div class="container text-center">
+<h2 class="mb-5 fw-bold">PDF Books & Notes</h2>
+<div id="pdfSermons" class="row g-4 justify-content-center"></div>
+</div>
+</section>
+
+<section class="section text-center">
+<div class="container">
+<h2 class="fw-bold">Stay Connected</h2>
+<p class="lead">Receive fresh teachings and updates from the ministry</p>
+<a href="contact.html" class="btn btn-success btn-lg">Contact Us</a>
+</div>
+</section>
+
+<footer class="text-center py-4">
+<p class="mb-0">&copy; 2026 Highly Elected Being of God Ministry</p>
+</footer>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const containers = {
+    video: document.getElementById('videoSermons'),
+    audio: document.getElementById('audioSermons'),
+    pdf: document.getElementById('pdfSermons')
+};
+let publicLiveSocket = null;
+let publicLivePeer = null;
+let publicLiveStreamActive = false;
+let liveRenderKey = '';
+
+function escapeHtml(value) {
+    return String(value || '').replace(/[&<>'"]/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+    }[char]));
+}
+
+function emptyCard(type) {
+    const labels = {
+        video: 'No video sermons have been uploaded yet.',
+        audio: 'No audio sermons have been uploaded yet.',
+        pdf: 'No PDF books or notes have been uploaded yet.'
+    };
+    return `<div class="col-12"><p class="text-muted mb-0">${labels[type]}</p></div>`;
+}
+
+function getEmbedUrl(streamUrl) {
+    if (!streamUrl) return '';
+
+    const url = streamUrl.trim();
+    const iframeSrcMatch = url.match(/<iframe[^>]+src=["']([^"']+)["']/i);
+    if (iframeSrcMatch) {
+        return iframeSrcMatch[1];
+    }
+
+    const youtubeMatch = url.match(/^(?:https?:\/\/)?(?:www\.|m\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:(?:watch\?(?:.*&)?v=)|embed\/|shorts\/|live\/|v\/))([A-Za-z0-9_-]{11})/i);
+    if (youtubeMatch) {
+        return `https://www.youtube.com/embed/${youtubeMatch[1]}`;
+    }
+
+    const vimeoMatch = url.match(/^(?:https?:\/\/)?(?:www\.)?vimeo\.com\/(?:channels\/[A-Za-z0-9_-]+\/|groups\/[A-Za-z0-9_-]+\/videos\/|album\/[A-Za-z0-9_-]+\/video\/)?([0-9]+)/i);
+    if (vimeoMatch) {
+        return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+    }
+
+    if (url.includes('youtube.com/embed') || url.includes('youtube-nocookie.com/embed') || url.includes('player.vimeo.com')) {
+        return url;
+    }
+
+    return '';
+}
+
+function isDirectAudioUrl(url) {
+    return /\.(mp3|wav|m4a|aac|ogg|webm)(?:\?.*)?$/i.test(url || '');
+}
+
+function isDirectVideoUrl(url) {
+    return /\.(mp4|webm|ogv|mov)(?:\?.*)?$/i.test(url || '');
+}
+
+function renderLivePlayer(liveStream, safeUrl) {
+    const originalUrl = liveStream.streamUrl || '';
+    const streamType = liveStream.streamType === 'audio' ? 'audio' : 'video';
+
+    if (originalUrl === 'admin-live-room') {
+        const label = streamType === 'audio' ? 'Audio room is live' : 'Video room is live';
+        const detail = streamType === 'audio'
+            ? 'The admin has started a live audio teaching room.'
+            : 'The admin has started a live video teaching room.';
+
+        return `
+            <div class="live-audio-frame">
+                <video id="publicLiveRoomVideo" class="live-room-video ${streamType === 'audio' ? 'd-none' : ''}" autoplay muted playsinline controls></video>
+                <div id="publicLiveRoomAudioOnly" class="${streamType === 'audio' ? '' : 'd-none'}">
+                    <i class="bi bi-broadcast-pin display-5"></i>
+                </div>
+                <div class="h5 fw-bold mt-3 mb-2">${label}</div>
+                <div id="publicLiveRoomStatus">${detail} Connecting...</div>
+                <button id="publicLiveRoomPlay" class="btn btn-light btn-sm live-room-action" type="button">Play Live</button>
+            </div>
+        `;
+    }
+
+    if (streamType === 'audio' || isDirectAudioUrl(originalUrl)) {
+        if (isDirectAudioUrl(originalUrl)) {
+            return `
+                <div class="live-audio-frame">
+                    <i class="bi bi-broadcast-pin display-5"></i>
+                    <div class="h5 fw-bold mt-3 mb-0">Live Audio Teaching</div>
+                    <audio src="${safeUrl}" controls autoplay preload="metadata"></audio>
+                </div>
+            `;
+        }
+
+        return '<div class="alert alert-warning mb-3">This audio link cannot be embedded directly. Click the button below to listen in a new tab.</div>';
+    }
+
+    if (isDirectVideoUrl(originalUrl)) {
+        return `<div class="ratio ratio-16x9"><video src="${safeUrl}" controls autoplay muted playsinline preload="metadata"></video></div>`;
+    }
+
+    const embedUrl = getEmbedUrl(originalUrl);
+    if (embedUrl) {
+        return `<div class="ratio ratio-16x9"><iframe src="${escapeHtml(embedUrl)}" title="Live Teaching" allowfullscreen sandbox="allow-scripts allow-same-origin allow-presentation"></iframe></div>`;
+    }
+
+    return '<div class="alert alert-warning mb-3">This stream URL cannot be embedded directly. Click the button below to watch it in a new tab.</div>';
+}
+
+function renderLiveStreamCard(liveStream) {
+    if (!liveStream.isLive) {
+        return `<div class="col-12"><div class="live-stream-card live-stream-empty"><div><strong>No live teaching is streaming now.</strong><p class="mb-0">Please check back during live prayer or preaching sessions.</p></div></div></div>`;
+    }
+
+    const originalUrl = liveStream.streamUrl || '';
+    const safeUrl = escapeHtml(originalUrl);
+    const streamType = liveStream.streamType === 'audio' ? 'Audio' : 'Video';
+
+    return `
+        <div class="col-12 col-lg-10">
+            <article class="live-stream-card">
+                <span class="live-stream-badge"><i class="bi bi-broadcast"></i> Live ${streamType} Teaching</span>
+                ${renderLivePlayer(liveStream, safeUrl)}
+                <h3 class="h5 fw-bold">${escapeHtml(liveStream.title)}</h3>
+                <p class="text-muted">${escapeHtml(liveStream.description)}</p>
+                ${originalUrl === 'admin-live-room' ? '' : `<a href="${safeUrl}" target="_blank" rel="noopener" class="btn btn-success btn-sm">${streamType === 'Audio' ? 'Listen Live' : 'Watch Live'}</a>`}
+            </article>
+        </div>
+    `;
+}
+
+function getIceServers() {
+    return { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
+}
+
+function setPublicLiveStatus(text) {
+    const status = document.getElementById('publicLiveRoomStatus');
+    if (status) status.textContent = text;
+}
+
+function stopPublicLiveRoom() {
+    publicLiveStreamActive = false;
+
+    if (publicLivePeer) {
+        publicLivePeer.close();
+        publicLivePeer = null;
+    }
+
+    if (publicLiveSocket) {
+        publicLiveSocket.disconnect();
+        publicLiveSocket = null;
+    }
+}
+
+function requestPublicLiveStream() {
+    if (!publicLiveSocket) {
+        startPublicLiveRoom();
+        return;
+    }
+
+    if (!publicLiveSocket.connected) {
+        publicLiveSocket.connect();
+    }
+
+    setPublicLiveStatus('Requesting the admin live video...');
+    publicLiveSocket.emit('viewer-live-ready');
+}
+
+function startPublicLiveRoom() {
+    if (!window.io || publicLiveStreamActive) return;
+
+    publicLiveStreamActive = true;
+    publicLiveSocket = io();
+    publicLiveSocket.on('connect', () => {
+        setPublicLiveStatus('Waiting for the admin live stream...');
+        publicLiveSocket.emit('viewer-live-ready');
+    });
+    publicLiveSocket.on('connect_error', () => {
+        setPublicLiveStatus('Could not connect to the live server. Restart node server.js and refresh this page.');
+    });
+    publicLiveSocket.on('admin-live-unavailable', () => {
+        setPublicLiveStatus('The live teaching is published. Waiting for the admin camera/audio room to connect...');
+    });
+    publicLiveSocket.on('admin-live-ready', () => {
+        setPublicLiveStatus('Admin stream found. Connecting...');
+        setTimeout(() => publicLiveSocket.emit('viewer-live-ready'), 250);
+    });
+    publicLiveSocket.on('admin-live-ended', () => {
+        setPublicLiveStatus('The live teaching has ended.');
+        stopPublicLiveRoom();
+    });
+    publicLiveSocket.on('live-offer', async ({ offer, adminId }) => {
+        if (!offer) return;
+
+        if (publicLivePeer) publicLivePeer.close();
+        publicLivePeer = new RTCPeerConnection(getIceServers());
+        publicLivePeer.ontrack = (event) => {
+            const video = document.getElementById('publicLiveRoomVideo');
+            if (video && event.streams[0]) {
+                const audioOnly = document.getElementById('publicLiveRoomAudioOnly');
+                video.classList.remove('d-none');
+                audioOnly?.classList.add('d-none');
+                video.srcObject = event.streams[0];
+                video.play()
+                    .then(() => setPublicLiveStatus('Live teaching is playing. Use the video controls to unmute.'))
+                    .catch(() => setPublicLiveStatus('Live teaching is connected. Click Play Live to start the video.'));
+            }
+        };
+        publicLivePeer.onicecandidate = (event) => {
+            if (event.candidate) {
+                publicLiveSocket.emit('live-ice-candidate', {
+                    targetId: adminId,
+                    candidate: event.candidate
+                });
+            }
+        };
+        publicLivePeer.onconnectionstatechange = () => {
+            if (publicLivePeer && publicLivePeer.connectionState === 'failed') {
+                setPublicLiveStatus('The live connection dropped. Reconnecting...');
+                publicLiveSocket.emit('viewer-live-ready');
+            }
+        };
+
+        await publicLivePeer.setRemoteDescription(new RTCSessionDescription(offer));
+        const answer = await publicLivePeer.createAnswer();
+        await publicLivePeer.setLocalDescription(answer);
+        publicLiveSocket.emit('live-answer', { adminId, answer });
+    });
+    publicLiveSocket.on('live-ice-candidate', async ({ candidate }) => {
+        if (publicLivePeer && candidate) {
+            await publicLivePeer.addIceCandidate(new RTCIceCandidate(candidate));
+        }
+    });
+}
+
+document.addEventListener('click', (event) => {
+    const playButton = event.target.closest('#publicLiveRoomPlay');
+    if (!playButton) return;
+
+    const video = document.getElementById('publicLiveRoomVideo');
+    if (!video) return;
+
+    if (!video.srcObject) {
+        requestPublicLiveStream();
+        return;
+    }
+
+    video.muted = false;
+    video.play()
+        .then(() => setPublicLiveStatus('Live teaching is playing.'))
+        .catch(() => setPublicLiveStatus('Click the video player controls to start playback.'));
+});
+
+function renderMedia(sermon) {
+    const url = escapeHtml(sermon.fileUrl);
+
+    if (sermon.type === 'video') {
+        return `<div class="media-frame ratio ratio-16x9"><video src="${url}" controls preload="metadata"></video></div>`;
+    }
+
+    if (sermon.type === 'audio') {
+        return `<audio src="${url}" controls preload="metadata" class="mt-2"></audio>`;
+    }
+
+    return `<div class="pdf-box mb-3"><i class="bi bi-file-earmark-pdf"></i></div>`;
+}
+
+function renderSermonCard(sermon) {
+    const title = escapeHtml(sermon.title);
+    const description = escapeHtml(sermon.description);
+    const category = escapeHtml(sermon.category || 'Teaching');
+    const url = escapeHtml(sermon.fileUrl);
+    const buttonText = sermon.type === 'pdf' ? 'Read PDF' : 'Open Sermon';
+
+    return `
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+            <article class="card transition-up h-100 p-3">
+                ${renderMedia(sermon)}
+                <div class="card-body px-0 pb-0">
+                    <h3 class="h5 fw-bold">${title}</h3>
+                    <p class="text-muted">${description}</p>
+                    <span class="badge bg-success mb-3">${category}</span>
+                    <a href="${url}" target="_blank" rel="noopener" class="btn btn-success btn-sm w-100">${buttonText}</a>
+                </div>
+            </article>
+        </div>
+    `;
+}
+
+async function loadLiveStream() {
+    try {
+        const response = await fetch('/api/live-stream');
+        if (!response.ok) throw new Error('Could not load live stream.');
+        const liveStream = await response.json();
+        const container = document.getElementById('liveStream');
+        const nextRenderKey = JSON.stringify({
+            isLive: liveStream.isLive,
+            title: liveStream.title,
+            description: liveStream.description,
+            streamUrl: liveStream.streamUrl,
+            streamType: liveStream.streamType
+        });
+
+        if (nextRenderKey !== liveRenderKey) {
+            liveRenderKey = nextRenderKey;
+            container.innerHTML = renderLiveStreamCard(liveStream);
+        }
+
+        if (liveStream.isLive && liveStream.streamUrl === 'admin-live-room') {
+            startPublicLiveRoom();
+        } else {
+            stopPublicLiveRoom();
+        }
+    } catch (error) {
+        const container = document.getElementById('liveStream');
+        container.innerHTML = '<div class="col-12"><div class="live-stream-card live-stream-empty"><div><strong>Live stream data is unavailable.</strong><p class="mb-0">Make sure the backend is running and the live stream API is reachable.</p></div></div></div>';
+    }
+}
+
+async function loadSermons() {
+    try {
+        const response = await fetch('/api/sermons');
+        if (!response.ok) throw new Error('Could not load sermons.');
+        const sermons = await response.json();
+
+        Object.entries(containers).forEach(([type, container]) => {
+            const filtered = sermons.filter((sermon) => sermon.type === type);
+            container.innerHTML = filtered.length ? filtered.map(renderSermonCard).join('') : emptyCard(type);
+        });
+    } catch (error) {
+        Object.values(containers).forEach((container) => {
+            container.innerHTML = '<div class="col-12"><p class="text-danger mb-0">Start the Node.js server to load uploaded sermons.</p></div>';
+        });
+    }
+}
+
+loadLiveStream();
+loadSermons();
+setInterval(loadLiveStream, 5000);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

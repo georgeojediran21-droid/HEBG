@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vegetarian - HEBG Ministry</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+:root {
+    --primary-emerald: #064e3b;
+    --accent-gold: #b38b59;
+}
+body{ font-family:'Poppins',sans-serif; background:#fcfdfd; }
+
+/* HERO */
+.hero{
+    background:linear-gradient(rgba(6, 78, 59, 0.8),rgba(10, 25, 49, 0.9)),
+    url('/uploads/images/hero-worship.svg') center/cover;
+    color:white;
+    padding:140px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(28px,5vw,52px);
+}
+
+/* SECTIONS */
+.section{
+    padding:80px 0;
+}
+
+/* CARDS */
+.card{
+    border:none !important;
+    border-radius:24px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04) !important;
+    overflow:hidden;
+    height:100%;
+    transition: 0.3s ease;
+}
+.card:hover{
+    transform:translateY(-8px);
+}
+
+/* ICONS */
+.feature-icon{
+    font-size:40px;
+    color:var(--primary-emerald);
+}
+
+/* IMAGES */
+.recipe-img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
+/* FOOTER */
+footer{
+    background:#0a1931;
+    color:white;
+}
+
+/* RESPONSIVE FIX */
+@media(max-width:768px){
+    .section{
+        padding:60px 0;
+    }
+
+    .hero{
+        padding:100px 15px;
+    }
+}
+</style>
+<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow sticky-top">
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="index.html">HEBG Ministry</a>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto text-center gap-2">
+
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="sermons.html">Sermons</a></li>
+<li class="nav-item"><a class="nav-link" href="Prayer.html">Prayer</a></li>
+<li class="nav-item"><a class="nav-link active" href="vegetarian.html">Vegetarian</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+</ul>
+</div>
+
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero vegetarian-hero">
+<div class="container">
+<h1 class="fw-bold">Vegetarian Lifestyle</h1>
+<p class="lead">Living in discipline, purity, and honoring God through health</p>
+</div>
+</section>
+
+<!-- SCRIPTURE -->
+<section class="section text-center">
+<div class="container">
+<h2>Scriptural Foundation</h2>
+<blockquote class="blockquote mt-3">
+<p>“And God said, Behold, I have given you every herb bearing seed...”</p>
+<footer class="blockquote-footer">Genesis 1:29</footer>
+</blockquote>
+</div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section bg-light text-center">
+<div class="container">
+
+<h2 class="mb-4">Spiritual &amp; Health Benefits</h2>
+<p class="mb-5">Eating clean strengthens both body and spirit</p>
+
+<div class="row g-4">
+
+<div class="col-12 col-sm-6 col-lg-3">
+<div class="card p-4 text-center">
+<i class="bi bi-lightning feature-icon"></i>
+<h6 class="mt-2 fw-bold">Energy</h6>
+<p class="small text-muted mb-0">Natural vitality</p>
+</div>
+</div>
+
+<div class="col-12 col-sm-6 col-lg-3">
+<div class="card p-4 text-center">
+<i class="bi bi-heart feature-icon"></i>
+<h6 class="mt-2 fw-bold">Heart Health</h6>
+<p class="small text-muted mb-0">Clean blood flow</p>
+</div>
+</div>
+
+<div class="col-12 col-sm-6 col-lg-3">
+<div class="card p-4 text-center">
+<i class="bi bi-brain feature-icon"></i>
+<h6 class="mt-2 fw-bold">Mind Clarity</h6>
+<p class="small text-muted mb-0">Sharper thinking</p>
+</div>
+</div>
+
+<div class="col-12 col-sm-6 col-lg-3">
+<div class="card p-4 text-center">
+<i class="bi bi-shield-check feature-icon"></i>
+<h6 class="mt-2 fw-bold">Spiritual Focus</h6>
+<p class="small text-muted mb-0">Disciplined life</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- RECIPES -->
+<section class="section bg-light">
+<div class="container">
+
+<div class="text-center mb-5">
+<h2 class="h2 fw-bold mb-2">Healthy Vegetarian Recipes</h2>
+<p class="text-muted lead">Nourish your body with these wholesome plant-based dishes</p>
+</div>
+
+<div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
+
+<!-- RECIPE 1: Quinoa Buddha Bowl -->
+<div class="col">
+<div class="card h-100 shadow-sm border-0 recipe-card">
+<img src="uploads/images/OIP-1.webp" class="card-img-top recipe-img" alt="Quinoa Buddha Bowl">
+<div class="card-body d-flex flex-column">
+<h5 class="card-title fw-bold mb-1">Quinoa Buddha Bowl</h5>
+<p class="card-text text-muted mb-2"><small><i class="bi bi-clock"></i> 15 min prep | <i class="bi bi-people"></i> Serves 2</small></p>
+<div class="ingredients-list small text-muted mb-3 flex-grow-1">
+<b class="text-dark">Ingredients:</b>
+<ul class="ps-3 mt-1 mb-0">
+<li>1 cup cooked quinoa</li>
+<li>1 cup roasted chickpeas</li>
+<li>2 cups mixed greens</li>
+<li>1 avocado, sliced</li>
+<li>1 cup roasted sweet potato</li>
+<li>Tahini dressing</li>
+</ul>
+</div>
+<small class="text-success fw-bold">High in protein &amp; fiber</small>
+</div>
+</div>
+</div>
+
+<!-- RECIPE 2: Green Smoothie Bowl -->
+<div class="col">
+<div class="card h-100 shadow-sm border-0 recipe-card">
+<img src="uploads/images/OIP-2.webp" class="card-img-top recipe-img" alt="Green Smoothie Bowl">
+<div class="card-body d-flex flex-column">
+<h5 class="card-title fw-bold mb-1">Green Smoothie Bowl</h5>
+<p class="card-text text-muted mb-2"><small><i class="bi bi-clock"></i> 10 min prep | <i class="bi bi-people"></i> Serves 1</small></p>
+<div class="ingredients-list small text-muted mb-3 flex-grow-1">
+<b class="text-dark">Ingredients:</b>
+<ul class="ps-3 mt-1 mb-0">
+<li>2 cups fresh spinach</li>
+<li>1 frozen banana</li>
+<li>1 cup almond milk</li>
+<li>½ cup Greek yogurt</li>
+<li>Granola &amp; berries topping</li>
+<li>Coconut shreds</li>
+</ul>
+</div>
+<small class="text-success fw-bold">Quick energy boost</small>
+</div>
+</div>
+</div>
+
+<!-- RECIPE 3: Roasted Vegetable Soup -->
+<div class="col">
+<div class="card h-100 shadow-sm border-0 recipe-card">
+<img src="uploads/images/OIP-3.webp" class="card-img-top recipe-img" alt="Roasted Vegetable Soup">
+<div class="card-body d-flex flex-column">
+<h5 class="card-title fw-bold mb-1">Roasted Vegetable Soup</h5>
+<p class="card-text text-muted mb-2"><small><i class="bi bi-clock"></i> 40 min cook | <i class="bi bi-people"></i> Serves 4</small></p>
+<div class="ingredients-list small text-muted mb-3 flex-grow-1">
+<b class="text-dark">Ingredients:</b>
+<ul class="ps-3 mt-1 mb-0">
+<li>2 carrots, chopped</li>
+<li>2 zucchini, cubed</li>
+<li>1 bell pepper</li>
+<li>3 cloves garlic</li>
+<li>4 cups vegetable broth</li>
+<li>Fresh herbs &amp; olive oil</li>
+</ul>
+</div>
+<small class="text-success fw-bold">Comfort in a bowl</small>
+</div>
+</div>
+</div>
+
+<!-- RECIPE 4: Chickpea Curry -->
+<div class="col">
+<div class="card h-100 shadow-sm border-0 recipe-card">
+<img src="uploads/images/OIP-4.webp" class="card-img-top recipe-img" alt="Spiced Chickpea Curry">
+<div class="card-body d-flex flex-column">
+<h5 class="card-title fw-bold mb-1">Spiced Chickpea Curry</h5>
+<p class="card-text text-muted mb-2"><small><i class="bi bi-clock"></i> 30 min cook | <i class="bi bi-people"></i> Serves 4</small></p>
+<div class="ingredients-list small text-muted mb-3 flex-grow-1">
+<b class="text-dark">Ingredients:</b>
+<ul class="ps-3 mt-1 mb-0">
+<li>2 cans chickpeas</li>
+<li>1 can coconut milk</li>
+<li>2 onions, diced</li>
+<li>3 tbsp curry powder</li>
+<li>2 cups spinach</li>
+<li>Ginger &amp; garlic</li>
+</ul>
+</div>
+<small class="text-success fw-bold">Rich &amp; flavorful</small>
+</div>
+</div>
+</div>
+
+<!-- RECIPE 5: Lentil Salad -->
+<div class="col">
+<div class="card h-100 shadow-sm border-0 recipe-card">
+<img src="uploads/images/OIP-5.webp" class="card-img-top recipe-img" alt="Mediterranean Lentil Salad">
+<div class="card-body d-flex flex-column">
+<h5 class="card-title fw-bold mb-1">Mediterranean Lentil Salad</h5>
+<p class="card-text text-muted mb-2"><small><i class="bi bi-clock"></i> 20 min prep | <i class="bi bi-people"></i> Serves 3</small></p>
+<div class="ingredients-list small text-muted mb-3 flex-grow-1">
+<b class="text-dark">Ingredients:</b>
+<ul class="ps-3 mt-1 mb-0">
+<li>1 cup cooked lentils</li>
+<li>1 cucumber, diced</li>
+<li>1 red bell pepper</li>
+<li>1 cup cherry tomatoes</li>
+<li>Red onion, finely diced</li>
+<li>Lemon vinaigrette</li>
+</ul>
+</div>
+<small class="text-success fw-bold">Fresh &amp; light</small>
+</div>
+</div>
+</div>
+
+<!-- RECIPE 6: Black Bean Tacos -->
+<div class="col">
+<div class="card h-100 shadow-sm border-0 recipe-card">
+<img src="uploads/images/OIP-6.webp" class="card-img-top recipe-img" alt="Black Bean Tacos">
+<div class="card-body d-flex flex-column">
+<h5 class="card-title fw-bold mb-1">Black Bean Tacos</h5>
+<p class="card-text text-muted mb-2"><small><i class="bi bi-clock"></i> 20 min cook | <i class="bi bi-people"></i> Serves 2</small></p>
+<div class="ingredients-list small text-muted mb-3 flex-grow-1">
+<b class="text-dark">Ingredients:</b>
+<ul class="ps-3 mt-1 mb-0">
+<li>1 can black beans</li>
+<li>Corn tortillas</li>
+<li>Avocado, sliced</li>
+<li>Fresh cilantro</li>
+<li>Lime &amp; salsa</li>
+<li>Shredded cabbage</li>
+</ul>
+</div>
+<small class="text-success fw-bold">Quick &amp; delicious</small>
+</div>
+</div>
+</div>
+
+<!-- RECIPE 7: Baked Falafel -->
+<div class="col">
+<div class="card h-100 shadow-sm border-0 recipe-card">
+<img src="uploads/images/OIP-7.webp" class="card-img-top recipe-img" alt="Baked Falafel Wraps">
+<div class="card-body d-flex flex-column">
+<h5 class="card-title fw-bold mb-1">Baked Falafel Wraps</h5>
+<p class="card-text text-muted mb-2"><small><i class="bi bi-clock"></i> 25 min cook | <i class="bi bi-people"></i> Serves 3</small></p>
+<div class="ingredients-list small text-muted mb-3 flex-grow-1">
+<b class="text-dark">Ingredients:</b>
+<ul class="ps-3 mt-1 mb-0">
+<li>1 can chickpeas</li>
+<li>Onion &amp; garlic</li>
+<li>Cumin &amp; coriander</li>
+<li>Whole wheat pitas</li>
+<li>Tahini sauce</li>
+<li>Fresh vegetables</li>
+</ul>
+</div>
+<small class="text-success fw-bold">Middle Eastern classic</small>
+</div>
+</div>
+</div>
+
+<!-- RECIPE 8: Vegetable Stir-Fry -->
+<div class="col">
+<div class="card h-100 shadow-sm border-0 recipe-card">
+<img src="uploads/images/OIP-8.webp" class="card-img-top recipe-img" alt="Asian Vegetable Stir-Fry">
+<div class="card-body d-flex flex-column">
+<h5 class="card-title fw-bold mb-1">Asian Vegetable Stir-Fry</h5>
+<p class="card-text text-muted mb-2"><small><i class="bi bi-clock"></i> 20 min cook | <i class="bi bi-people"></i> Serves 2</small></p>
+<div class="ingredients-list small text-muted mb-3 flex-grow-1">
+<b class="text-dark">Ingredients:</b>
+<ul class="ps-3 mt-1 mb-0">
+<li>2 cups broccoli florets</li>
+<li>1 bell pepper</li>
+<li>1 cup snap peas</li>
+<li>3 cloves garlic</li>
+<li>Soy sauce &amp; ginger</li>
+<li>Sesame oil &amp; rice</li>
+</ul>
+</div>
+<small class="text-success fw-bold">Crispy &amp; aromatic</small>
+</div>
+</div>
+</div>
+
+<!-- RECIPE 9: Caprese Pasta -->
+<div class="col">
+<div class="card h-100 shadow-sm border-0 recipe-card">
+<img src="uploads/images/OIP-9.webp" class="card-img-top recipe-img" alt="Fresh Caprese Pasta">
+<div class="card-body d-flex flex-column">
+<h5 class="card-title fw-bold mb-1">Fresh Caprese Pasta</h5>
+<p class="card-text text-muted mb-2"><small><i class="bi bi-clock"></i> 15 min cook | <i class="bi bi-people"></i> Serves 2</small></p>
+<div class="ingredients-list small text-muted mb-3 flex-grow-1">
+<b class="text-dark">Ingredients:</b>
+<ul class="ps-3 mt-1 mb-0">
+<li>8 oz whole wheat pasta</li>
+<li>Fresh mozzarella</li>
+<li>Cherry tomatoes</li>
+<li>Fresh basil</li>
+<li>Olive oil &amp; garlic</li>
+<li>Balsamic vinegar</li>
+</ul>
+</div>
+<small class="text-success fw-bold">Italian elegance</small>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Nutrition Tips -->
+<div class="alert alert-success mt-5 border-0 shadow-sm rounded-3" role="alert">
+<h5 class="alert-heading fw-bold mb-3"><i class="bi bi-heart-fill"></i> Nutrition Tips for Vegetarian Living</h5>
+<div class="row g-3">
+<div class="col-md-6">
+<ul class="mb-0 ps-3">
+<li><b>Protein:</b> Combine legumes (beans, lentils) with grains for complete proteins</li>
+<li><b>Iron:</b> Eat iron-rich foods like spinach, lentils, and fortified cereals with vitamin C</li>
+<li><b>B12:</b> Ensure adequate intake through fortified foods or supplements</li>
+</ul>
+</div>
+<div class="col-md-6">
+<ul class="mb-0 ps-3">
+<li><b>Variety:</b> Eat a rainbow of vegetables to maximize micronutrient intake</li>
+<li><b>Healthy Fats:</b> Include avocados, nuts, seeds, and olive oil daily</li>
+<li><b>Hydration:</b> Drink plenty of water and herbal teas throughout the day</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<style>
+.recipe-card {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+}
+
+.recipe-img {
+  object-fit: contain;
+  padding: 15px;
+  background: #f5f5f5;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+}
+
+.ingredients-list ul {
+  list-style: none;
+}
+
+.ingredients-list li {
+  padding: 3px 0;
+}
+
+.ingredients-list li:before {
+  content: "▪ ";
+  color: #198754;
+  font-weight: bold;
+  margin-right: 8px;
+}
+</style>
+
+<!-- CTA -->
+<section class="section text-center">
+<div class="container">
+<h2>Embrace the Calling</h2>
+<p class="lead">Holiness is not only spiritual, but also lifestyle</p>
+<a href="Prayer.html" class="btn btn-success btn-lg">Join Prayer Movement</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-4">
+<p>&copy; 2026 Highly Elected Being of God Ministry</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
